@@ -1,5 +1,7 @@
+import Button from 'devextreme-react/button';
 import Drawer from 'devextreme-react/drawer';
 import ScrollView from 'devextreme-react/scroll-view';
+import Toolbar, { Item } from 'devextreme-react/toolbar';
 import React, { useState, useCallback, useRef } from 'react';
 import { useHistory } from 'react-router';
 import { Header, SideNavigationMenu, Footer } from '../../components';
@@ -7,10 +9,8 @@ import './main-layout.scss';
 import { useScreenSize } from '../../utils/media-query';
 import { Template } from 'devextreme-react/core/template';
 import { useMenuPatch } from '../../utils/patches';
-import BrandName from "../../components/barnd-name/brand-name";
-import TabNavigation from "../../components/tab-navigation/tab-navigation";
 
-export default function MainLayout({ title, children }) {
+export default function SideNavInnerToolbar({ title, children }) {
     const scrollViewRef = useRef();
     const history = useHistory();
     const { isXSmall, isLarge } = useScreenSize();
@@ -60,15 +60,7 @@ export default function MainLayout({ title, children }) {
     }, [history, menuStatus, isLarge]);
 
     return (
-        <div className={'side-nav-outer-toolbar'}>
-            <BrandName/>
-            <TabNavigation/>
-            <Header
-                className={'layout-header'}
-                menuToggleEnabled
-                toggleMenu={toggleMenu}
-                title={title}
-            />
+        <div className={'side-nav-inner-toolbar'}>
             <Drawer
                 className={['drawer', patchCssClass].join(' ')}
                 position={'before'}
@@ -82,6 +74,10 @@ export default function MainLayout({ title, children }) {
                 template={'menu'}
             >
                 <div className={'container'}>
+                    <Header
+                        menuToggleEnabled={isXSmall}
+                        toggleMenu={toggleMenu}
+                    />
                     <ScrollView ref={scrollViewRef} className={'layout-body with-footer'}>
                         <div className={'content'}>
                             {React.Children.map(children, item => {
@@ -102,6 +98,18 @@ export default function MainLayout({ title, children }) {
                         openMenu={temporaryOpenMenu}
                         onMenuReady={onMenuReady}
                     >
+                        <Toolbar id={'navigation-header'}>
+                            {
+                                !isXSmall &&
+                                <Item
+                                    location={'before'}
+                                    cssClass={'menu-button'}
+                                >
+                                    <Button icon="menu" stylingMode="text" onClick={toggleMenu} />
+                                </Item>
+                            }
+                            <Item location={'before'} cssClass={'header-title'} text={title} />
+                        </Toolbar>
                     </SideNavigationMenu>
                 </Template>
             </Drawer>
