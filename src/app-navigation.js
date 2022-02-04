@@ -7,15 +7,17 @@ export const navigation = [
   {
     text: 'Examples',
     icon: 'folder',
+    path: '/example',
     items: [
       {
         text: 'Profile',
-        path: '/profile'
+        path: '/example/profile'
       },
       {
         text: 'Tasks',
-        path: '/tasks'
+        path: '/example/tasks'
       }
     ]
   }
-  ];
+];
+

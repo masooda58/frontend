@@ -8,6 +8,7 @@ import { useScreenSize } from '../../utils/media-query';
 import { Template } from 'devextreme-react/core/template';
 import { useMenuPatch } from '../../utils/patches';
 import BrandName from "../../components/barnd-name/brand-name";
+import TabNavigation from "../../components/tab-navigation/tab-navigation";
 
 export default function MainLayout({ title, children }) {
     const scrollViewRef = useRef();
@@ -61,6 +62,7 @@ export default function MainLayout({ title, children }) {
     return (
         <div className={'side-nav-outer-toolbar'}>
             <BrandName/>
+            <TabNavigation/>
             <Header
                 className={'layout-header'}
                 menuToggleEnabled
