@@ -1,4 +1,4 @@
-import React, {useCallback, useMemo, useRef, useState} from 'react';
+import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
 import {Tabs} from "devextreme-react";
 import {useScreenSize} from "../../utils/media-query";
 import {navigation} from "../../app-navigation";
@@ -8,6 +8,7 @@ import {useNavigation} from "../../contexts/navigation";
 function TabNavigation(props) {
     const history=useHistory();
     const { isLarge } = useScreenSize();
+    const[selectTab,setSelectTab]=useState()
     const refTab=useRef()
     function normalizePath () {
         return navigation.map((item) => {
@@ -33,6 +34,19 @@ function TabNavigation(props) {
         history.push(event.itemData.path )
 
     }, [history]);
+    useEffect(()=>{
+        if(currentPath===undefined){
+            return
+        }
+        for(let item of items)
+        {
+
+            if(currentPath.includes(item.path))
+            {
+                setSelectTab(item.path)
+            }
+        }
+    },[currentPath])
 
     return (
 <div>
@@ -42,11 +56,12 @@ function TabNavigation(props) {
         selectionMode={'single'}
         keyExpr={'path'}
         width={'100%'}
-        height={'50px'}
-        selectedItemKeys={currentPath===undefined?[]:[currentPath]}
+        height={'10%'}
+        selectedItemKeys={selectTab===undefined?[]:[selectTab]}
         scrollByContent={true}
         showNavButtons={true}
         onItemClick={onNavigationChanged}
+        // currentPath===undefined?[]:[currentPath]
     />
 
 </div>

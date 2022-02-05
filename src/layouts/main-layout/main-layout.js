@@ -105,7 +105,7 @@ export default function SideNavInnerToolbar({ title, children }) {
                         >
                             <Toolbar   id={'navigation-header'}>
                                 {
-                                    !isXSmall &&
+                                    // !isXSmall &&
                                     <Item
                                         location={'before'}
                                         cssClass={'menu-button'}

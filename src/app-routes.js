@@ -1,10 +1,22 @@
 import { withNavigationWatcher } from './contexts/navigation';
-import { HomePage, TasksPage, ProfilePage,Example } from './pages';
+import { HomePage, TasksPage, ProfilePage,Example,Funda,Techno,Tablo } from './pages';
 
 const routes = [
   {
     path: '/example/tasks',
     component: TasksPage
+  },
+  {
+    path: '/tech',
+    component: Techno
+  },
+  {
+    path: '/funda',
+    component: Funda
+  },
+  {
+    path: '/tablo',
+    component: Tablo
   },
   {
     path: '/example/profile',

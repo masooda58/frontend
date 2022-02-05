@@ -1,11 +1,27 @@
 export const navigation = [
   {
-    text: 'Home',
+    text: 'خانه',
     path: '/home',
     icon: 'home'
   },
   {
-    text: 'Examples',
+    text: 'تکنیکال',
+    path: '/tech',
+    icon: 'car'
+  },
+  {
+    text: 'بنیادی',
+    path: '/funda',
+    icon: 'fields'
+  },
+  {
+    text: 'تابلوخوانی',
+    path: '/tablo',
+    icon: 'mergecells'
+  },
+
+  {
+    text: 'سایر',
     icon: 'folder',
     path: '/example',
     items: [

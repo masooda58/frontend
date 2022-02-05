@@ -7,8 +7,8 @@ import { Template } from 'devextreme-react/core/template';
 
 export default function Header({ menuToggleEnabled, title, toggleMenu }) {
   return (
-    <header className={'header-component'}>
-      <Toolbar style={{height:'50px'}}  className={'header-toolbar'}>
+    <header  className={'header-component'}>
+      <Toolbar style={{height:'10%'}}  className={'header-toolbar'}>
         <Item
           visible={menuToggleEnabled}
           location={'before'}
