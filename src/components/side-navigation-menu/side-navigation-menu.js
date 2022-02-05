@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useCallback, useMemo } from 'react';
+import React, {useEffect, useRef, useCallback, useMemo, useState} from 'react';
 import TreeView from 'devextreme-react/tree-view';
 import { navigation } from '../../app-navigation';
 import { useNavigation } from '../../contexts/navigation';
@@ -15,7 +15,7 @@ export default function SideNavigationMenu(props) {
     compactMode,
     onMenuReady
   } = props;
-
+  const [enableSearch,setEnablesearch]=useState();
   const { isLarge } = useScreenSize();
   function normalizePath () {
     return navigation.map((item) => {
@@ -49,6 +49,7 @@ export default function SideNavigationMenu(props) {
   }, [openMenu]);
 
   useEffect(() => {
+    setEnablesearch(!compactMode)
     const treeView = treeViewRef.current && treeViewRef.current.instance;
     if (!treeView) {
       return;
@@ -75,6 +76,7 @@ export default function SideNavigationMenu(props) {
           ref={treeViewRef}
           items={items}
           keyExpr={'path'}
+          searchEnabled={enableSearch}
           selectionMode={'single'}
           focusStateEnabled={false}
           expandEvent={'click'}

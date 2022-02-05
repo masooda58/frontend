@@ -1,11 +1,11 @@
 import React from 'react';
 import Toolbar, { Item } from 'devextreme-react/toolbar';
-import UserPanel from '../../../components/user-panel/user-panel';
+import UserPanel from '../../components/user-panel/user-panel';
 import './tab-navigation-layout.scss';
 import { Template } from 'devextreme-react/core/template';
 import Button from "devextreme-react/button";
-import BrandName from "../../../components/barnd-name/brand-name";
-import TabNavigation from "../../../components/tab-navigation/tab-navigation";
+import BrandName from "../../components/barnd-name/brand-name";
+import TabNavigation from "../../components/tab-navigation/tab-navigation";
 
 function TabNavigationLayout(props) {
     return (

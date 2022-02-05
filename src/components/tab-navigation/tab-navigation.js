@@ -1,4 +1,4 @@
-import React, {useCallback, useMemo, useRef} from 'react';
+import React, {useCallback, useMemo, useRef, useState} from 'react';
 import {Tabs} from "devextreme-react";
 import {useScreenSize} from "../../utils/media-query";
 import {navigation} from "../../app-navigation";
@@ -8,6 +8,7 @@ import {useNavigation} from "../../contexts/navigation";
 function TabNavigation(props) {
     const history=useHistory();
     const { isLarge } = useScreenSize();
+    const[changeSelect,setChangeSelect]=useState()
     const refTab=useRef()
     function normalizePath () {
         return navigation.map((item) => {
@@ -33,16 +34,24 @@ function TabNavigation(props) {
         history.push(event.itemData.path )
 
     }, [history]);
-    return (
 
-        <Tabs
-            ref={refTab}
-            dataSource={items}
-            width={300}
-            scrollByContent={true}
-            showNavButtons={true}
-            onItemClick={onNavigationChanged}
-        />
+    return (
+<div>
+    <Tabs
+        ref={refTab}
+        dataSource={items}
+        selectionMode={'single'}
+        keyExpr={'path'}
+        width={'100%'}
+        height={'50Px'}
+        selectedItemKeys={currentPath==undefined?[]:[currentPath]}
+        scrollByContent={true}
+        showNavButtons={true}
+        onItemClick={onNavigationChanged}
+    />
+
+</div>
+
 
     );
 }
