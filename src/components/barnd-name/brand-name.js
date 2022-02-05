@@ -1,5 +1,4 @@
 import React from 'react';
-import 'devextreme/dist/css/dx.light.css';
 import './brand-name.scss'
 //  نوشتن برند با فونت
 function BrandName(props) {
