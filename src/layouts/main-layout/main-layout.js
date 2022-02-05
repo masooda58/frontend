@@ -9,6 +9,7 @@ import './main-layout.scss';
 import { useScreenSize } from '../../utils/media-query';
 import { Template } from 'devextreme-react/core/template';
 import { useMenuPatch } from '../../utils/patches';
+import TabNavigationLayout from "./tab-navigation-layout/tab-navigation-layout";
 
 export default function SideNavInnerToolbar({ title, children }) {
     const scrollViewRef = useRef();
