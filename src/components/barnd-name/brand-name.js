@@ -3,6 +3,7 @@ import 'devextreme/dist/css/dx.light.css';
 import './brand-name.scss'
 //  نوشتن برند با فونت
 function BrandName(props) {
+
     return (
 <div>
     {props.color==='logo' &&

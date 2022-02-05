@@ -11,6 +11,7 @@ import { Template } from 'devextreme-react/core/template';
 import { useMenuPatch } from '../../utils/patches';
 import TabNavigationLayout from "../tab-navigation-layout/tab-navigation-layout";
 import TabNavigation from "../../components/tab-navigation/tab-navigation";
+import BrandName from "../../components/barnd-name/brand-name";
 
 export default function SideNavInnerToolbar({ title, children }) {
     const scrollViewRef = useRef();
@@ -63,7 +64,7 @@ export default function SideNavInnerToolbar({ title, children }) {
 
     return (
 
-            <div className={'side-nav-inner-toolbar'}>
+            <div  className={'side-nav-inner-toolbar'}>
                 <TabNavigation/>
                 <Drawer
                     className={['drawer', patchCssClass].join(' ')}
@@ -73,8 +74,8 @@ export default function SideNavInnerToolbar({ title, children }) {
                     revealMode={isXSmall ? 'slide' : 'expand'}
                     minSize={isXSmall ? 0 : 60}
                     maxSize={250}
-                    shading={isLarge ? false : true}
-                    opened={menuStatus === MenuStatus.Closed ? false : true}
+                    shading={!isLarge}
+                    opened={menuStatus !== MenuStatus.Closed}
                     template={'menu'}
                 >
                     <div className={'container'}>
@@ -102,17 +103,20 @@ export default function SideNavInnerToolbar({ title, children }) {
                             openMenu={temporaryOpenMenu}
                             onMenuReady={onMenuReady}
                         >
-                            <Toolbar id={'navigation-header'}>
+                            <Toolbar   id={'navigation-header'}>
                                 {
                                     !isXSmall &&
                                     <Item
                                         location={'before'}
                                         cssClass={'menu-button'}
+
                                     >
                                         <Button icon="menu" stylingMode="text" onClick={toggleMenu} />
                                     </Item>
                                 }
-                                <Item location={'before'} cssClass={'header-title'} text={title} />
+                                <Item location={'before'} cssClass={'header-title'}  >
+                                    <BrandName  />
+                                </Item>
                             </Toolbar>
                         </SideNavigationMenu>
                     </Template>

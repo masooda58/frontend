@@ -8,7 +8,6 @@ import {useNavigation} from "../../contexts/navigation";
 function TabNavigation(props) {
     const history=useHistory();
     const { isLarge } = useScreenSize();
-    const[changeSelect,setChangeSelect]=useState()
     const refTab=useRef()
     function normalizePath () {
         return navigation.map((item) => {
@@ -43,8 +42,8 @@ function TabNavigation(props) {
         selectionMode={'single'}
         keyExpr={'path'}
         width={'100%'}
-        height={'50Px'}
-        selectedItemKeys={currentPath==undefined?[]:[currentPath]}
+        height={'50px'}
+        selectedItemKeys={currentPath===undefined?[]:[currentPath]}
         scrollByContent={true}
         showNavButtons={true}
         onItemClick={onNavigationChanged}
