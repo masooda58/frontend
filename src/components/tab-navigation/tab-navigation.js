@@ -59,7 +59,8 @@ function TabNavigation(props) {
         height={'10%'}
         selectedItemKeys={selectTab===undefined?[]:[selectTab]}
         scrollByContent={true}
-        showNavButtons={true}
+        showNavButtons={false}
+        scrollingEnabled={true}
         onItemClick={onNavigationChanged}
         // currentPath===undefined?[]:[currentPath]
     />
