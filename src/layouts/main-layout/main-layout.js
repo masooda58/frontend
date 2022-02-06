@@ -65,7 +65,7 @@ export default function SideNavInnerToolbar({ title, children }) {
     return (
 
             <div  className={'side-nav-inner-toolbar'}>
-                <TabNavigation/>
+                {!isXSmall && <TabNavigation/>}
                 <Drawer
                     className={['drawer', patchCssClass].join(' ')}
                     position={'before'}
@@ -121,6 +121,10 @@ export default function SideNavInnerToolbar({ title, children }) {
                         </SideNavigationMenu>
                     </Template>
                 </Drawer>
+                <div style={{ }}>
+                    {isXSmall && <TabNavigation/> }
+                </div>
+
             </div>
 
 
