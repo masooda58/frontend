@@ -13,7 +13,7 @@ import TabNavigationLayout from "../tab-navigation-layout/tab-navigation-layout"
 import TabNavigation from "../../components/tab-navigation/tab-navigation";
 import BrandName from "../../components/barnd-name/brand-name";
 
-export default function SideNavInnerToolbar({ title, children }) {
+export default function MainLayout({ title, children }) {
     const scrollViewRef = useRef();
     const history = useHistory();
     const { isXSmall, isLarge } = useScreenSize();
