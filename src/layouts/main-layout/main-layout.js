@@ -121,7 +121,7 @@ export default function SideNavInnerToolbar({ title, children }) {
                         </SideNavigationMenu>
                     </Template>
                 </Drawer>
-                <div style={{ }}>
+                <div style={{    position: 'static' ,bottom: '0', width: "100%"}}>
                     {isXSmall && <TabNavigation/> }
                 </div>
 

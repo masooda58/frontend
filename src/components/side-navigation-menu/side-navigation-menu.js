@@ -49,7 +49,10 @@ export default function SideNavigationMenu(props) {
   }, [openMenu]);
 
   useEffect(() => {
-    setEnablesearch(!compactMode)
+    if (compactMode!=undefined){
+      setEnablesearch(!compactMode)
+    }
+
     const treeView = treeViewRef.current && treeViewRef.current.instance;
     if (!treeView) {
       return;

@@ -9,23 +9,24 @@ import MainLayout from "./layouts/main-layout/main-layout";
 export default function Content() {
   return (
     <MainLayout title={appInfo.title}>
-      <Switch>
-        {routes.map(({ path, component }) => (
-          <Route
-            exact
-            key={path}
-            path={path}
-            component={component}
-          />
-        ))}
-        <Redirect to={'/home'} />
-      </Switch>
-      {/*<Footer>*/}
-      {/*  Copyright © 2011-{new Date().getFullYear()} {appInfo.title} Inc.*/}
-      {/*  <br />*/}
-      {/*  All trademarks or registered trademarks are property of their*/}
-      {/*  respective owners.*/}
-      {/*</Footer>*/}
-    </MainLayout>
+
+          <Switch>
+              {routes.map(({ path, component }) => (
+                  <Route
+                      exact
+                      key={path}
+                      path={path}
+                      component={component}
+                  />
+              ))}
+              <Redirect to={'/home'} />
+          </Switch>
+          <Footer>
+            Copyright © 2011-{new Date().getFullYear()} {appInfo.title} Inc.
+            <br />
+            All trademarks or registered trademarks are property of their
+            respective owners.
+          </Footer>
+          </MainLayout>
   );
 }

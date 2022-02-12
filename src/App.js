@@ -31,11 +31,11 @@ export default function Root() {
   return (
     <Router>
       <AuthProvider>
-        <NavigationProvider>
-          <div className={`app ${screenSizeClass}`}>
-            <App />
-          </div>
-        </NavigationProvider>
+          <NavigationProvider>
+            <div className={`app ${screenSizeClass}`}>
+              <App />
+            </div>
+          </NavigationProvider>
       </AuthProvider>
     </Router>
   );
