@@ -4,11 +4,14 @@ import Button from 'devextreme-react/button';
 import UserPanel from '../user-panel/user-panel';
 import './header.scss';
 import { Template } from 'devextreme-react/core/template';
+import {useNavigation} from "../../contexts/navigation";
+
 
 export default function Header({ menuToggleEnabled, title, toggleMenu }) {
+  const { navigationData: { currentPath } } = useNavigation();
   return (
-    <header  className={'header-component'}>
-      <Toolbar style={{height:'10%'}}  className={'header-toolbar'}>
+    <div>
+      <Toolbar className={'test1'}>
         <Item
           visible={menuToggleEnabled}
           location={'before'}
@@ -17,12 +20,15 @@ export default function Header({ menuToggleEnabled, title, toggleMenu }) {
         >
           <Button   icon="menu" stylingMode="text" onClick={toggleMenu} />
         </Item>
+
         <Item
-          location={'before'}
-          cssClass={'header-title'}
-          text={title}
-          visible={!!title}
-        />
+            location={'before'}>
+          {currentPath}
+
+        </Item>
+        {/*<Item location={'before'}>*/}
+        {/*  <TabNavigation/>*/}
+        {/*</Item>*/}
         <Item
           location={'after'}
           locateInMenu={'auto'}
@@ -41,5 +47,5 @@ export default function Header({ menuToggleEnabled, title, toggleMenu }) {
           <UserPanel menuMode={'list'} />
         </Template>
       </Toolbar>
-    </header>
+    </div>
 )}

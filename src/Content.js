@@ -5,6 +5,7 @@ import routes from './app-routes';
 
 import { Footer } from './components';
 import MainLayout from "./layouts/main-layout/main-layout";
+import MenuNavigation from "./components/menu-navigation/menu-navigation";
 
 export default function Content() {
   return (

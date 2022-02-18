@@ -1,7 +1,6 @@
 import React from 'react';
 import Toolbar, { Item } from 'devextreme-react/toolbar';
 import UserPanel from '../../components/user-panel/user-panel';
-import './tab-navigation-layout.scss';
 import { Template } from 'devextreme-react/core/template';
 import Button from "devextreme-react/button";
 import BrandName from "../../components/barnd-name/brand-name";
@@ -9,17 +8,17 @@ import TabNavigation from "../../components/tab-navigation/tab-navigation";
 
 function TabNavigationLayout(props) {
     return (
-        <header className={'header-component'}>
-            <Toolbar className={'header-toolbar'}>
+        <div>
+            <Toolbar >
                 <Item
-                    cssClass={'menu-button'}
+                    location={'before'}
                 >
-                    <TabNavigation/>
+                    <BrandName color={"logo"}/>
                 </Item>
                 <Item
                     location={'before'}
                 >
-                    <BrandName/>
+                    <TabNavigation whereClass={'top'}/>
                 </Item>
                 <Item
                     location={'after'}
@@ -39,7 +38,7 @@ function TabNavigationLayout(props) {
                     <UserPanel menuMode={'list'} />
                 </Template>
             </Toolbar>
-        </header>
+        </div>
     );
 }
 

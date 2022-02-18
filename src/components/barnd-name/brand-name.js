@@ -6,7 +6,7 @@ function BrandName(props) {
     return (
 <div>
     {props.color==='logo' &&
-        <span className={"logofont"} >
+        <span style={{padding:'5px',margin:"5px"}} className={"logofont"} >
           <span style={{color:'#ff5722' }}> بورس</span>
           <span style={{color:'#1C91BC'}}>یار</span>
 

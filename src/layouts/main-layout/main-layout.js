@@ -9,9 +9,9 @@ import './main-layout.scss';
 import { useScreenSize } from '../../utils/media-query';
 import { Template } from 'devextreme-react/core/template';
 import { useMenuPatch } from '../../utils/patches';
-import TabNavigationLayout from "../tab-navigation-layout/tab-navigation-layout";
 import TabNavigation from "../../components/tab-navigation/tab-navigation";
 import BrandName from "../../components/barnd-name/brand-name";
+import TabNavigationLayout from "../tab-navigation-layout/tab-navigation-layout";
 
 export default function MainLayout({ title, children }) {
     const scrollViewRef = useRef();
@@ -65,7 +65,7 @@ export default function MainLayout({ title, children }) {
     return (
 
             <div  className={'side-nav-inner-toolbar'}>
-                {!isXSmall && <TabNavigation/>}
+                {!isXSmall && <TabNavigationLayout/> }
                 <Drawer
                     className={['drawer', patchCssClass].join(' ')}
                     position={'before'}
@@ -121,8 +121,8 @@ export default function MainLayout({ title, children }) {
                         </SideNavigationMenu>
                     </Template>
                 </Drawer>
-                <div style={{    position: 'static' ,bottom: '0', width: "100%"}}>
-                    {isXSmall && <TabNavigation/> }
+                <div style={{    position: 'fixed' ,bottom: '0', width: "100%"}}>
+                    {isXSmall && <TabNavigation whereClass={'down'}/> }
                 </div>
 
             </div>

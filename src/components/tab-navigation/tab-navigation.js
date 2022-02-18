@@ -4,8 +4,11 @@ import {useScreenSize} from "../../utils/media-query";
 import {navigation} from "../../app-navigation";
 import {useHistory} from "react-router-dom";
 import {useNavigation} from "../../contexts/navigation";
-
-function TabNavigation(props) {
+import './tab-navigation.scss'
+function TabNavigation({whereClass}) {
+    if(whereClass===undefined){
+        whereClass="top"
+    }
     const history=useHistory();
     const { isLarge } = useScreenSize();
     const[selectTab,setSelectTab]=useState()
@@ -47,24 +50,47 @@ function TabNavigation(props) {
             }
         }
     },[currentPath])
+    const renderListItem=(itemData)=>{
+
+            return(
+                <b> {itemData.text}</b>
+            )
+
+
+    }
 
     return (
-<div>
-    <Tabs
-        ref={refTab}
-        dataSource={items}
-        selectionMode={'single'}
-        keyExpr={'path'}
-        width={'100%'}
-        height={'10%'}
-        selectedItemKeys={selectTab===undefined?[]:[selectTab]}
-        scrollByContent={true}
-        showNavButtons={false}
-        scrollingEnabled={true}
-        onItemClick={onNavigationChanged}
+<div style={{ direction: "rtl"}}>
+    {whereClass=='top' && <Tabs className={whereClass}
+                                ref={refTab}
+                                dataSource={items}
+                                selectionMode={'single'}
+                                keyExpr={'path'}
+                                width={'100%'}
+                                height={'10%'}
+                                selectedItemKeys={selectTab===undefined?[]:[selectTab]}
+                                scrollByContent={true}
+                                showNavButtons={false}
+                                scrollingEnabled={true}
+                                onItemClick={onNavigationChanged}
+                                itemRender={renderListItem}
         // currentPath===undefined?[]:[currentPath]
-    />
+    /> }
+    {whereClass=='down' && <Tabs className={whereClass}
+                                ref={refTab}
+                                dataSource={items}
+                                selectionMode={'single'}
+                                keyExpr={'path'}
+                                width={'100%'}
+                                height={'10%'}
+                                selectedItemKeys={selectTab===undefined?[]:[selectTab]}
+                                scrollByContent={true}
+                                showNavButtons={false}
+                                scrollingEnabled={true}
+                                onItemClick={onNavigationChanged}
 
+        // currentPath===undefined?[]:[currentPath]
+    /> }
 </div>
 
 
