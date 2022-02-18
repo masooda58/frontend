@@ -1,17 +1,15 @@
 import React from 'react';
 import Toolbar, { Item } from 'devextreme-react/toolbar';
 import Button from 'devextreme-react/button';
-import UserPanel from '../user-panel/user-panel';
 import './header.scss';
-import { Template } from 'devextreme-react/core/template';
 import {useNavigation} from "../../contexts/navigation";
-
+import pic from '../../asset/img/logo__2.png'
 
 export default function Header({ menuToggleEnabled, title, toggleMenu }) {
   const { navigationData: { currentPath } } = useNavigation();
   return (
     <div>
-      <Toolbar className={'test1'}>
+      <Toolbar className={'mobil-menu'}>
         <Item
           visible={menuToggleEnabled}
           location={'before'}
@@ -20,10 +18,20 @@ export default function Header({ menuToggleEnabled, title, toggleMenu }) {
         >
           <Button   icon="menu" stylingMode="text" onClick={toggleMenu} />
         </Item>
+        <Item
+            // visible={!menuToggleEnabled}
+            location={'after'}
+            widget={'dxButton'}
+            cssClass={'menu-button'}
+        >
+          <Button   icon="search" stylingMode="text"  />
+        </Item>
 
         <Item
-            location={'before'}>
-          {currentPath}
+            location={'after'}
+
+        >
+          <img src={pic} padding={"10px"} width="45" height="55" />
 
         </Item>
         {/*<Item location={'before'}>*/}

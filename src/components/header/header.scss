@@ -24,8 +24,13 @@
   text-align: center;
   padding: 0;
 
-}
 
+}
+.menu-button{
+  .dx-button-mode-text .dx-icon {
+    color:$base-narenji;
+  }
+}
 .header-title .dx-item-content {
   padding: 0;
   margin: 0;
@@ -42,7 +47,8 @@
     padding: 3px;
   }
 }
-.test1{
-  background-color:  #293241
+.mobil-menu{
+  background-color:  $base-accent
 ;
 }
+
