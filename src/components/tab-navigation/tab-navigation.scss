@@ -13,18 +13,16 @@
   .dx-tab.dx-state-hover {
    color: #be1e1e;
   }
-  .dx-tab.dx-tab-selected,
-  .dx-tab.dx-tab-selected .dx-icon {
+  .dx-tab.dx-tab-selected
+  {
+    color: #ff5722;
+    border-top: 6px solid;
+  }
+  .dx-tab.dx-tab-selected .dx-icon{
     color: #ff5722;
   }
   .dx-tab.dx-tab-selected::before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    height: 2px;
-    left: 0;
-    right: 0;
-    background-color: #ff5722;
+position: absolute;
   }
 }
 .top{
@@ -43,14 +41,9 @@
   .dx-tab.dx-tab-selected,
   .dx-tab.dx-tab-selected .dx-icon {
     color: #ff5722;
+    border-top: 6px solid;
   }
   .dx-tab.dx-tab-selected::before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    height: 2px;
-    left: 0;
-    right: 0;
-    background-color: #ff5722;
+
   }
 }

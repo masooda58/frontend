@@ -10,7 +10,6 @@ function TabNavigation({whereClass}) {
         whereClass="top"
     }
     const history=useHistory();
-    const { isLarge } = useScreenSize();
     const[selectTab,setSelectTab]=useState()
     const refTab=useRef()
     function normalizePath () {

@@ -121,7 +121,7 @@ export default function MainLayout({ title, children }) {
                         </SideNavigationMenu>
                     </Template>
                 </Drawer>
-                <div style={{    position: 'fixed' ,bottom: '0', width: "100%"}}>
+                <div style={{    position: 'fixed' ,bottom: '0',width:"100%"}}>
                     {isXSmall && <TabNavigation whereClass={'down'}/> }
                 </div>
 
