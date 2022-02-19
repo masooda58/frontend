@@ -11,6 +11,7 @@ import { useScreenSizeClass } from './utils/media-query';
 import Content from './Content';
 import UnauthenticatedContent from './UnauthenticatedContent';
 import config from 'devextreme/core/config'
+
 function App() {
   const { user, loading } = useAuth();
   config({ rtlEnabled: true });
@@ -29,6 +30,7 @@ export default function Root() {
   const screenSizeClass = useScreenSizeClass();
 
   return (
+
     <Router>
       <AuthProvider>
           <NavigationProvider>
@@ -38,5 +40,6 @@ export default function Root() {
           </NavigationProvider>
       </AuthProvider>
     </Router>
+
   );
 }

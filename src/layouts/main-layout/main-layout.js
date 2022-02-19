@@ -12,9 +12,12 @@ import { useMenuPatch } from '../../utils/patches';
 import TabNavigation from "../../components/tab-navigation/tab-navigation";
 import BrandName from "../../components/barnd-name/brand-name";
 import TabNavigationLayout from "../tab-navigation-layout/tab-navigation-layout";
+import {sideNavSearch} from "../../redux/project/actions";
+import {useDispatch} from "react-redux";
 
 export default function MainLayout({ title, children }) {
     const scrollViewRef = useRef();
+    const dispatch=useDispatch()
     const history = useHistory();
     const { isXSmall, isLarge } = useScreenSize();
     const [patchCssClass, onMenuReady] = useMenuPatch();
@@ -116,6 +119,9 @@ export default function MainLayout({ title, children }) {
                                 }
                                 <Item location={'before'} cssClass={'header-title'}  >
                                     <BrandName  />
+                                </Item>
+                                <Item location={'before'} cssClass={'header-title'}  >
+                                    <Button icon="search" stylingMode="text" onClick={(e)=>{dispatch(sideNavSearch(e))}} />
                                 </Item>
                             </Toolbar>
                         </SideNavigationMenu>

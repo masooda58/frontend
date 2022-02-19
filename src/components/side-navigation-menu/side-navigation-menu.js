@@ -4,10 +4,13 @@ import { navigation } from '../../app-navigation';
 import { useNavigation } from '../../contexts/navigation';
 import { useScreenSize } from '../../utils/media-query';
 import './side-navigation-menu.scss';
+import{useSelector,useDispatch} from 'react-redux'
 
 import * as events from 'devextreme/events';
 
+
 export default function SideNavigationMenu(props) {
+  const sideNavSearchState= useSelector( state=> state.sideNavSearchState)
   const {
     children,
     selectedItemChanged,
@@ -52,6 +55,7 @@ export default function SideNavigationMenu(props) {
     if (compactMode!=undefined){
       setEnablesearch(!compactMode)
     }
+   console.log("ss="+sideNavSearchState)
 
     const treeView = treeViewRef.current && treeViewRef.current.instance;
     if (!treeView) {
@@ -66,7 +70,7 @@ export default function SideNavigationMenu(props) {
     if (compactMode) {
       treeView.collapseAll();
     }
-  }, [currentPath, compactMode]);
+  }, [currentPath, compactMode,sideNavSearchState]);
 
   return (
     <div
@@ -75,11 +79,12 @@ export default function SideNavigationMenu(props) {
     >
       {children}
       <div className={'menu-container'}>
+
         <TreeView
           ref={treeViewRef}
           items={items}
           keyExpr={'path'}
-          searchEnabled={enableSearch}
+          searchEnabled={sideNavSearchState && enableSearch}
           selectionMode={'single'}
           focusStateEnabled={false}
           expandEvent={'click'}

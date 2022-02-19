@@ -1,0 +1,1 @@
+export const SIDE_NAV_SEARCH = 'SIDE_NAV_SEARCH'

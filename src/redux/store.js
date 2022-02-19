@@ -1,5 +1,6 @@
 import {createStore} from "redux";
-import {mobReducer} from "./mob-test/mob-reducer";
+import {mainReducer} from "./project/reducer";
 
-const store =createStore (mobReducer)
+
+const store =createStore (mainReducer)
 export default store
