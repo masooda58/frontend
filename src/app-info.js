@@ -1,5 +1,5 @@
 const appInfo = {
-    title: 'Template Dev'
+    title: 'BoursYar'
 };
 export default appInfo;
 
