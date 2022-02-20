@@ -14,15 +14,8 @@ import{mainMobileSearch} from"../../redux/project/actions"
 export default function Header({ menuToggleEnabled, title, toggleMenu }) {
   const { navigationData: { currentPath } } = useNavigation();
   const showMobilSearch=useSelector(state => state.showMobilSearch)
-  const [showClass,setShowClass]=useState()
-  useEffect(()=>{
-    if(showMobilSearch){
-      setShowClass(true)
-    }
-    else{
-      setShowClass(false)
-    }
-  },[showMobilSearch])
+
+
   const dispatch=useDispatch()
   const { isXSmall } = useScreenSize();
   return (
