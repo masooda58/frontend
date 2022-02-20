@@ -56,7 +56,7 @@ export default function SideNavigationMenu(props) {
     if (compactMode!=undefined){
       setEnablesearch(!compactMode)
     }
-   console.log("ss="+sideNavSearchState)
+
 
     const treeView = treeViewRef.current && treeViewRef.current.instance;
     if (!treeView) {

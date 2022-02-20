@@ -13,7 +13,7 @@ import TabNavigation from "../../components/tab-navigation/tab-navigation";
 import BrandName from "../../components/barnd-name/brand-name";
 import TabNavigationLayout from "../tab-navigation-layout/tab-navigation-layout";
 import {sideNavSearch} from "../../redux/project/actions";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import SearchBox from "../../components/search-box/search-box";
 
 export default function MainLayout({ title, children }) {
@@ -22,6 +22,7 @@ export default function MainLayout({ title, children }) {
     const history = useHistory();
     const { isXSmall, isLarge } = useScreenSize();
     const [patchCssClass, onMenuReady] = useMenuPatch();
+    const showMobilSearch=useSelector(state => state.showMobilSearch)
     const [menuStatus, setMenuStatus] = useState(
         isLarge ? MenuStatus.Opened : MenuStatus.Closed
     );
@@ -87,8 +88,11 @@ export default function MainLayout({ title, children }) {
                             menuToggleEnabled={isXSmall}
                             toggleMenu={toggleMenu}
                         />
+                        {(showMobilSearch&&isXSmall) && <SearchBox/>}
                         <ScrollView ref={scrollViewRef} className={'layout-body with-footer'}>
+
                             <div className={'content'}>
+
                                 {React.Children.map(children, item => {
                                     return item.type !== Footer && item;
                                 })}
@@ -122,7 +126,7 @@ export default function MainLayout({ title, children }) {
                                     <BrandName  />
                                 </Item>
                                 <Item location={'before'} cssClass={'header-title'}  >
-                                    <Button icon="search" stylingMode="text" onClick={(e)=>{dispatch(sideNavSearch(e))}} />
+                                    <Button icon="search" stylingMode="text" onClick={()=>{dispatch(sideNavSearch())}} />
                                 </Item>
                             </Toolbar>
                         </SideNavigationMenu>
