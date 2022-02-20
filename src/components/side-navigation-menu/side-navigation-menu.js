@@ -9,6 +9,7 @@ import{useSelector,useDispatch} from 'react-redux'
 import * as events from 'devextreme/events';
 
 
+
 export default function SideNavigationMenu(props) {
   const sideNavSearchState= useSelector( state=> state.sideNavSearchState)
   const {
@@ -91,8 +92,11 @@ export default function SideNavigationMenu(props) {
           onItemClick={selectedItemChanged}
           onContentReady={onMenuReady}
           width={'100%'}
+          useNativeScrolling={false}
         />
+
       </div>
+
     </div>
   );
 }

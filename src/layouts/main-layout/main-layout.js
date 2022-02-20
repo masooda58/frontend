@@ -14,6 +14,7 @@ import BrandName from "../../components/barnd-name/brand-name";
 import TabNavigationLayout from "../tab-navigation-layout/tab-navigation-layout";
 import {sideNavSearch} from "../../redux/project/actions";
 import {useDispatch} from "react-redux";
+import SearchBox from "../../components/search-box/search-box";
 
 export default function MainLayout({ title, children }) {
     const scrollViewRef = useRef();
@@ -127,6 +128,7 @@ export default function MainLayout({ title, children }) {
                         </SideNavigationMenu>
                     </Template>
                 </Drawer>
+
                 <div style={{    position: 'fixed' ,bottom: '0',width:"100%"}}>
                     {isXSmall && <TabNavigation whereClass={'down'}/> }
                 </div>
