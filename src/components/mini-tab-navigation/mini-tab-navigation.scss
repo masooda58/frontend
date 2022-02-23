@@ -1,0 +1,25 @@
+.left{
+  .dx-tab {
+    padding: 10px;
+    min-width: 12px;
+    background-color:white;
+    color: #3d5a80;
+  }
+  .dx-tab .dx-icon{
+    color:  #3d5a80;
+  }
+  .dx-tab.dx-state-hover .dx-icon {
+    color: #be1e1e;
+  }
+  .dx-tab.dx-state-hover{
+    color: #be1e1e;
+  }
+  .dx-tab.dx-tab-selected,
+  .dx-tab.dx-tab-selected .dx-icon {
+    color: #ff5722;
+
+  }
+  .dx-tab.dx-tab-selected::before {
+
+  }
+}

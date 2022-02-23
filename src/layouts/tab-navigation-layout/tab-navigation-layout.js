@@ -6,6 +6,7 @@ import Button from "devextreme-react/button";
 import BrandName from "../../components/barnd-name/brand-name";
 import TabNavigation from "../../components/tab-navigation/tab-navigation";
 import pic from "../../asset/img/logo__2.png";
+import MiniTabNavigation from "../../components/mini-tab-navigation/mini-tab-navigation";
 
 function TabNavigationLayout(props) {
     return (
@@ -24,6 +25,9 @@ function TabNavigationLayout(props) {
                     location={'before'}
                 >
                     <TabNavigation whereClass={'top'}/>
+                </Item>
+                <Item location={'after'}>
+                    <MiniTabNavigation/>
                 </Item>
 
             </Toolbar>

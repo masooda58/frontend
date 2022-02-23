@@ -40,13 +40,20 @@ export default function Header({ menuToggleEnabled, title, toggleMenu }) {
            :
                 <Button   icon="close" stylingMode="text" onClick={()=>dispatch(mainMobileSearch())} />}
           </Item>}
+          {isXSmall&&<Item
+              // visible={!menuToggleEnabled}
+              location={'after'}
+              widget={'dxButton'}
+              cssClass={'menu-button'}
+          >
+                <Button   icon="fa fa-cart-shopping" stylingMode="text" onClick={()=>dispatch(mainMobileSearch())} />
+          </Item>}
+
           {!isXSmall && <Item location={'center'}>
             <SearchBox/>
           </Item>
           }
-          {isXSmall&&<Item location={'after'}>
-            <img src={pic} padding={"10px"} width="45" height="55" />
-          </Item>}
+
           <Item
             location={'after'}
             locateInMenu={'auto'}
@@ -60,10 +67,15 @@ export default function Header({ menuToggleEnabled, title, toggleMenu }) {
             >
               <UserPanel menuMode={'context'} />
             </Button>
+
           </Item>
+
           <Template name={'userPanelTemplate'}>
             <UserPanel menuMode={'list'} />
           </Template>
+          {isXSmall&&<Item location={'after'}>
+            <img src={pic} padding={"10px"} width="45" height="55" />
+          </Item>}
         </Toolbar>
       </div>
   )}
