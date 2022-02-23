@@ -11,16 +11,22 @@ import { useScreenSizeClass } from './utils/media-query';
 import Content from './Content';
 import UnauthenticatedContent from './UnauthenticatedContent';
 import config from 'devextreme/core/config'
+import AdminContent from "./Admin-Content";
+import {useSelector} from "react-redux";
 
 function App() {
   const { user, loading } = useAuth();
   config({ rtlEnabled: true });
+  const adminClick=useSelector(state => state.adminClick)
   if (loading) {
     return <LoadPanel visible={true} />;
   }
 
+    if (user && user.text==="admin" && adminClick) {
+        return <AdminContent/>
+    }
   if (user) {
-    return <Content />;
+      return <Content />;
   }
 
   return <UnauthenticatedContent />;

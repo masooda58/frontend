@@ -1,8 +1,9 @@
-import{SIDE_NAV_SEARCH,MAIN_MOBIL_SEARCH} from './types'
+import {SIDE_NAV_SEARCH, MAIN_MOBIL_SEARCH, ADMIN_CLICK} from './types'
 
 const initialState={
  sideNavSearchState: false,
- showMobilSearch:false
+ showMobilSearch:false,
+ adminClick:false
 
 }
 export const mainReducer = (state=initialState,action) => {
@@ -17,6 +18,12 @@ export const mainReducer = (state=initialState,action) => {
     ...state,
     showMobilSearch: !state.showMobilSearch
 
+   }
+  case ADMIN_CLICK:
+
+   return{
+    ...state,
+     adminClick: action.payload
    }
 
    default:return state

@@ -1,13 +1,14 @@
 import defaultUser from '../utils/default-user';
+import userData from '../user-data-base'
 
 export async function signIn(email, password) {
   try {
     // Send request
-    console.log(email, password);
+    const user=userData.find((item)=>item.email==email)
 
     return {
       isOk: true,
-      data: defaultUser
+      data: user
     };
   }
   catch {
@@ -24,7 +25,7 @@ export async function getUser() {
 
     return {
       isOk: true,
-      data: defaultUser
+      data: ''
     };
   }
   catch {

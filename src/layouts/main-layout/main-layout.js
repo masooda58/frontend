@@ -2,7 +2,7 @@ import Button from 'devextreme-react/button';
 import Drawer from 'devextreme-react/drawer';
 import ScrollView from 'devextreme-react/scroll-view';
 import Toolbar, { Item } from 'devextreme-react/toolbar';
-import React, { useState, useCallback, useRef } from 'react';
+import React, {useState, useCallback, useRef, useMemo} from 'react';
 import { useHistory } from 'react-router';
 import { Header, SideNavigationMenu, Footer } from '../../components';
 import './main-layout.scss';
@@ -20,11 +20,14 @@ export default function MainLayout({ title, children }) {
     const scrollViewRef = useRef();
     const dispatch=useDispatch()
     const history = useHistory();
-    const { isXSmall, isLarge } = useScreenSize();
+    const { isXSmall, isLarge,isMedium } = useScreenSize();
     const [patchCssClass, onMenuReady] = useMenuPatch();
     const showMobilSearch=useSelector(state => state.showMobilSearch)
+    const medlarg=useMemo(()=>{
+        return isMedium||isLarge
+    },[isLarge,isMedium]); // state screen size large or medium
     const [menuStatus, setMenuStatus] = useState(
-        isLarge ? MenuStatus.Opened : MenuStatus.Closed
+        medlarg ? MenuStatus.Opened : MenuStatus.Closed
     );
 
     const toggleMenu = useCallback(({ event }) => {
@@ -46,11 +49,11 @@ export default function MainLayout({ title, children }) {
 
     const onOutsideClick = useCallback(() => {
         setMenuStatus(
-            prevMenuStatus => prevMenuStatus !== MenuStatus.Closed && !isLarge
+            prevMenuStatus => prevMenuStatus !== MenuStatus.Closed && !medlarg
                 ? MenuStatus.Closed
                 : prevMenuStatus
         );
-    }, [isLarge]);
+    }, [medlarg]);
 
     const onNavigationChanged = useCallback(({ itemData: { path }, event, node }) => {
         if (menuStatus === MenuStatus.Closed || !path || node.selected) {
@@ -61,25 +64,25 @@ export default function MainLayout({ title, children }) {
         history.push(path);
         scrollViewRef.current.instance.scrollTo(0);
 
-        if (!isLarge || menuStatus === MenuStatus.TemporaryOpened) {
+        if (!medlarg || menuStatus === MenuStatus.TemporaryOpened) {
             setMenuStatus(MenuStatus.Closed);
             event.stopPropagation();
         }
-    }, [history, menuStatus, isLarge]);
+    }, [history, menuStatus, medlarg]);
 
     return (
 
             <div  className={'side-nav-inner-toolbar'}>
-                {!isXSmall && <TabNavigationLayout/> }
+                {medlarg && <TabNavigationLayout/> }
                 <Drawer
                     className={['drawer', patchCssClass].join(' ')}
                     position={'before'}
                     closeOnOutsideClick={onOutsideClick}
-                    openedStateMode={isLarge ? 'shrink' : 'overlap'}
+                    openedStateMode={medlarg ? 'shrink' : 'overlap'}
                     revealMode={isXSmall ? 'slide' : 'expand'}
                     minSize={isXSmall ? 0 : 60}
                     maxSize={250}
-                    shading={!isLarge}
+                    shading={!isMedium}
                     opened={menuStatus !== MenuStatus.Closed}
                     template={'menu'}
                 >

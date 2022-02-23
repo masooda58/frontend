@@ -1,18 +1,17 @@
 import React, {useCallback} from 'react';
-import {Button, Tabs} from "devextreme-react";
+import { Tabs} from "devextreme-react";
 import "./mini-tab-navigation.scss"
-import ContextMenu, {Position} from "devextreme-react/context-menu";
 import {useHistory} from "react-router-dom";
+import {useAuth} from "../../contexts/auth";
+import {useDispatch} from "react-redux";
+import {adminClick} from '../../redux/project/actions'
 
 const MiniTabNavigation = () => {
+    const {user}=useAuth()
     const history = useHistory();
+    const dispatch= useDispatch();
     const items=[
-        {
-            text: "Admin Panel",
-            icon:"fa fa-user-gear",
-            path:"/create-account"
 
-        },
         {
             text: 'خرید اشتراک',
             icon: "fa fa-cart-shopping"
@@ -22,6 +21,15 @@ const MiniTabNavigation = () => {
             icon: "fa-solid fa-user fa-2xs"
         }
 ]
+    if (user.text==='admin'){
+        items.push(
+            {
+                text: "Admin Panel",
+                icon:"fa fa-user-gear",
+                path:"/admin"
+
+            })
+    }
     const renderListItem=(itemData)=>{
 
         return(
@@ -31,9 +39,12 @@ const MiniTabNavigation = () => {
         )
     }
     const onNavigationChanged = useCallback((event) => {
+      if(event.itemData.text==="Admin Panel")
+      {
+          dispatch(adminClick(true))
+      }
 
-
-        history.push('/create-account');
+        history.push(event.itemData.path);
 
     }, [history]);
     return (
