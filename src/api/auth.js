@@ -4,11 +4,11 @@ import userData from '../user-data-base'
 export async function signIn(email, password) {
   try {
     // Send request
-    const user=userData.find((item)=>item.email==email)
+    //const user=userData.find((item)=>item.email==email)
 
     return {
       isOk: true,
-      data: user
+      data: userData[1]
     };
   }
   catch {
@@ -25,7 +25,7 @@ export async function getUser() {
 
     return {
       isOk: true,
-      data: ''
+      data: userData[1]
     };
   }
   catch {
