@@ -38,12 +38,12 @@ const MiniTabNavigation = () => {
     }, [history]);
     return (
         <div >
-            {/*<Tabs className={'left'}*/}
-            {/*      dataSource={items}*/}
-            {/*      onItemClick={onNavigationChanged}*/}
-            {/*      // itemRender={renderListItem}*/}
-            {/*    />*/}
-            <Button onClick={onNavigationChanged}>salam</Button>
+            <Tabs className={'left'}
+                  dataSource={items}
+                  onItemClick={onNavigationChanged}
+                  // itemRender={renderListItem}
+                />
+
         </div>
     );
 };
