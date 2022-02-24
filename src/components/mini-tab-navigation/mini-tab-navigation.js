@@ -14,18 +14,18 @@ const MiniTabNavigation = () => {
 
         {
             text: 'خرید اشتراک',
-            icon: "fa fa-cart-shopping"
+            icon: "fa-light fa-cart-shopping"
         },
         {
             text: 'پنل کاربری',
-            icon: "fa-solid fa-user fa-2xs"
+            icon: "fa-light fa-user fa-2xs"
         }
 ]
     if (user.text==='admin'){
         items.push(
             {
                 text: "Admin Panel",
-                icon:"fa fa-user-gear",
+                icon:"fa-solid fa-user-gear",
                 path:"/admin"
 
             })

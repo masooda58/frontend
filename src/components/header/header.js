@@ -47,7 +47,7 @@ const [toolToggel,setToolToggel]=useState(false)
               widget={'dxButton'}
               cssClass={'menu-button'}
           >
-                <Button   icon="fa fa-cart-shopping" stylingMode="text" onClick={()=>dispatch(mainMobileSearch())} />
+                <Button   icon="fa-light fa-cart-shopping" stylingMode="text" onClick={()=>dispatch(mainMobileSearch())} />
           </Item>}
           {isXSmall&&<Item
               // visible={!menuToggleEnabled}
@@ -55,7 +55,7 @@ const [toolToggel,setToolToggel]=useState(false)
               widget={'dxButton'}
               cssClass={'menu-button'}
           >
-            <Button   icon="fa fa-user-gear" stylingMode="text" onClick={()=>dispatch(adminClick(true))} />
+            <Button   icon="fa-light fa-user-gear" stylingMode="text" onClick={()=>dispatch(adminClick(true))} />
           </Item>}
           <Item
               // visible={!menuToggleEnabled}
@@ -68,7 +68,7 @@ const [toolToggel,setToolToggel]=useState(false)
                  onMouseLeave={()=>setToolToggel(false)}
 
             >
-              <Button   icon="fa-solid fa-right-from-bracket" stylingMode="text"
+              <Button   icon="fa-light fa-right-from-bracket" stylingMode="text"
                         onClick={()=>dispatch(adminClick(true))}
 
               />

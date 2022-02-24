@@ -15,6 +15,7 @@ import TabNavigationLayout from "../tab-navigation-layout/tab-navigation-layout"
 import {sideNavSearch} from "../../redux/project/actions";
 import {useDispatch, useSelector} from "react-redux";
 import SearchBox from "../../components/search-box/search-box";
+import UserCart from "../../components/user-cart/user-cart";
 
 export default function MainLayout({ title, children }) {
     const scrollViewRef = useRef();
@@ -134,7 +135,11 @@ export default function MainLayout({ title, children }) {
                                     </Item>
 
                                 </Toolbar>
-                                componnet use in top of drawerr
+
+                                {menuStatus===2 &&  <div style={{height:"100%"}}>
+                                    <UserCart/>
+                                </div>}
+
                             </div>
                         </SideNavigationMenu>
                     </Template>
