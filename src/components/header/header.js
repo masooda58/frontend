@@ -10,6 +10,7 @@ import {useDispatch, useSelector} from "react-redux";
 import{mainMobileSearch} from"../../redux/project/actions"
 import{ adminClick} from "../../redux/project/actions"
 import {Tooltip} from "devextreme-react";
+import {useAuth} from "../../contexts/auth";
 
 export default function Header({ menuToggleEnabled, title, toggleMenu }) {
   const { navigationData: { currentPath } } = useNavigation();
@@ -18,7 +19,7 @@ export default function Header({ menuToggleEnabled, title, toggleMenu }) {
 const [toolToggel,setToolToggel]=useState(false)
   const dispatch=useDispatch()
   const { isXSmall } = useScreenSize();
-
+ const{signOut } =useAuth()
   return (
       <div>
         <Toolbar className={'mobil-menu'}>
@@ -69,7 +70,7 @@ const [toolToggel,setToolToggel]=useState(false)
 
             >
               <Button   icon="fa-light fa-right-from-bracket" stylingMode="text"
-                        onClick={()=>dispatch(adminClick(true))}
+                        onClick={()=>signOut()}
 
               />
             </div>

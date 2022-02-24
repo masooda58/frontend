@@ -46,8 +46,12 @@ function TabNavigation({whereClass}) {
             if(currentPath.includes(item.path))
             {
                 setSelectTab(item.path)
+                break;
             }
+
         }
+       
+
     },[currentPath])
     const renderListItem=(itemData)=>{
 

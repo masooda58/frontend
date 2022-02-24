@@ -70,7 +70,6 @@ export default function MainLayout({ title, children }) {
             event.stopPropagation();
         }
     }, [history, menuStatus, medlarg]);
-console.log(medlarg +"=meddd")
     return (
 
             <div  className={'side-nav-inner-toolbar'}>
