@@ -50,7 +50,7 @@ function TabNavigation({whereClass}) {
             }
 
         }
-       
+        setSelectTab()
 
     },[currentPath])
     const renderListItem=(itemData)=>{
