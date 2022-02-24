@@ -107,16 +107,17 @@ export default function MainLayout({ title, children }) {
                             </div>
                         </ScrollView>
                     </div>
-                    <Template name={'menu'}>
+                     <Template name={'menu'}>
                         <SideNavigationMenu
                             compactMode={menuStatus === MenuStatus.Closed}
                             selectedItemChanged={onNavigationChanged}
                             openMenu={temporaryOpenMenu}
                             onMenuReady={onMenuReady}
                         >
-                            <Toolbar  id={'navigation-header'}>
-                                {
-                                    // !isXSmall &&
+                            <div id={'navigation-header'}>
+
+
+                                <Toolbar  id={'navigation-header'}>
                                     <Item
                                         location={'before'}
                                         cssClass={'menu-button'}
@@ -124,16 +125,20 @@ export default function MainLayout({ title, children }) {
                                     >
                                         <Button icon="menu" stylingMode="text" onClick={toggleMenu} />
                                     </Item>
-                                }
-                                <Item location={'before'} cssClass={'header-title'}  >
-                                    <BrandName  />
-                                </Item>
-                                <Item location={'before'} cssClass={'header-title'}  >
-                                    <Button icon="search" stylingMode="text" onClick={()=>{dispatch(sideNavSearch())}} />
-                                </Item>
-                            </Toolbar>
+
+                                    <Item location={'before'} cssClass={'header-title'}  >
+                                        <BrandName  />
+                                    </Item>
+                                    <Item location={'before'} cssClass={'header-title'}  >
+                                        <Button icon="search" stylingMode="text" onClick={()=>{dispatch(sideNavSearch())}} />
+                                    </Item>
+
+                                </Toolbar>
+                                componnet use in top of drawerr
+                            </div>
                         </SideNavigationMenu>
                     </Template>
+
                 </Drawer>
 
                 <div style={{    position: 'fixed' ,bottom: '0',width:"100%"}}>
