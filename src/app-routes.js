@@ -1,5 +1,5 @@
 import { withNavigationWatcher } from './contexts/navigation';
-import { HomePage, TasksPage, ProfilePage,Example,Funda,Techno,Tablo } from './pages';
+import { HomePage, TasksPage, ProfilePage,Example,Funda,Techno,Tablo,khodro } from './pages';
 
 const routes = [
   {
@@ -29,7 +29,12 @@ const routes = [
   {
     path: '/example',
     component: Example
+  },
+  {
+    path:'/khodro',
+    component:khodro
   }
+
 ];
 
 export default routes.map(route => {

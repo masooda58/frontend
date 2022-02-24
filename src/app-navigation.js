@@ -19,6 +19,11 @@ export const navigation = [
     path: '/tablo',
     icon: 'mergecells'
   },
+  {
+    text: 'خودرو',
+    path:'/khodro',
+    icon:"car"
+  },
 
   {
     text: 'سایر',

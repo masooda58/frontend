@@ -5,5 +5,5 @@ export { default as Example } from './example';
 export { default as Funda } from './funda';
 export { default as Techno } from './techno';
 export { default as Tablo } from './tablo';
-
+export { default as khodro } from './khodro';
 

@@ -114,7 +114,7 @@ export default function MainLayout({ title, children }) {
                             openMenu={temporaryOpenMenu}
                             onMenuReady={onMenuReady}
                         >
-                            <Toolbar   id={'navigation-header'}>
+                            <Toolbar  id={'navigation-header'}>
                                 {
                                     // !isXSmall &&
                                     <Item
