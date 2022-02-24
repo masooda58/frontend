@@ -70,7 +70,7 @@ export default function MainLayout({ title, children }) {
             event.stopPropagation();
         }
     }, [history, menuStatus, medlarg]);
-
+console.log(medlarg +"=meddd")
     return (
 
             <div  className={'side-nav-inner-toolbar'}>
@@ -83,7 +83,7 @@ export default function MainLayout({ title, children }) {
                     revealMode={isXSmall ? 'slide' : 'expand'}
                     minSize={isXSmall ? 0 : 60}
                     maxSize={250}
-                    shading={!isMedium}
+                    shading={!medlarg}
                     opened={menuStatus !== MenuStatus.Closed}
                     template={'menu'}
                 >
