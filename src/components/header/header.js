@@ -7,14 +7,13 @@ import pic from '../../asset/img/logo__2.png'
 import SearchBox from "../search-box/search-box";
 import {useScreenSize} from "../../utils/media-query";
 import {useDispatch, useSelector} from "react-redux";
-import{mainMobileSearch} from"../../redux/project/actions"
-import{ adminClick} from "../../redux/project/actions"
 import {Tooltip} from "devextreme-react";
 import {useAuth} from "../../contexts/auth";
+import {ADMINCLICK, TOGGLESHOWSEARCONMOBIL} from "../../redux/layout-slice";
 
 export default function Header({ menuToggleEnabled, title, toggleMenu }) {
   const { navigationData: { currentPath } } = useNavigation();
-  const showMobilSearch=useSelector(state => state.showMobilSearch)
+  const showMobilSearch=useSelector(state => state.layout.showSearchOnMobile)
 
 const [toolToggel,setToolToggel]=useState(false)
   const dispatch=useDispatch()
@@ -38,9 +37,9 @@ const [toolToggel,setToolToggel]=useState(false)
               cssClass={'menu-button'}
           >
             {!showMobilSearch ?
-                <Button   icon="search" stylingMode="text" onClick={()=>dispatch(mainMobileSearch())} />
+                <Button   icon="search" stylingMode="text" onClick={()=>dispatch(TOGGLESHOWSEARCONMOBIL())} />
            :
-                <Button   icon="close" stylingMode="text" onClick={()=>dispatch(mainMobileSearch())} />}
+                <Button   icon="close" stylingMode="text" onClick={()=>dispatch(TOGGLESHOWSEARCONMOBIL())} />}
           </Item>}
           {isXSmall&&<Item
               // visible={!menuToggleEnabled}
@@ -48,7 +47,7 @@ const [toolToggel,setToolToggel]=useState(false)
               widget={'dxButton'}
               cssClass={'menu-button'}
           >
-                <Button   icon="fa-light fa-cart-shopping" stylingMode="text" onClick={()=>dispatch(mainMobileSearch())} />
+                <Button   icon="fa-light fa-cart-shopping" stylingMode="text" onClick={()=>dispatch(TOGGLESHOWSEARCONMOBIL())} />
           </Item>}
           {isXSmall&&<Item
               // visible={!menuToggleEnabled}
@@ -56,7 +55,7 @@ const [toolToggel,setToolToggel]=useState(false)
               widget={'dxButton'}
               cssClass={'menu-button'}
           >
-            <Button   icon="fa-light fa-user-gear" stylingMode="text" onClick={()=>dispatch(adminClick(true))} />
+            <Button   icon="fa-light fa-user-gear" stylingMode="text" onClick={()=>dispatch(ADMINCLICK({permit:true}))} />
           </Item>}
           <Item
               // visible={!menuToggleEnabled}

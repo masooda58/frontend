@@ -11,7 +11,7 @@ import * as events from 'devextreme/events';
 
 
 export default function SideNavigationMenu(props) {
-  const sideNavSearchState= useSelector( state=> state.sideNavSearchState)
+  const sideNavSearchState= useSelector( state=> state.layout.sideNavSearch)
   const {
     children,
     selectedItemChanged,

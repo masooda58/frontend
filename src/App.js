@@ -15,9 +15,10 @@ import AdminContent from "./Admin-Content";
 import {useSelector} from "react-redux";
 
 function App() {
+
   const { user, loading } = useAuth();
   config({ rtlEnabled: true });
-  const adminClick=useSelector(state => state.adminClick)
+  const adminClick=useSelector(state => state.layout.adminClick)
   if (loading) {
     return <LoadPanel visible={true} />;
   }

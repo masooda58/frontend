@@ -4,7 +4,7 @@ import "./mini-tab-navigation.scss"
 import {useHistory, useLocation} from "react-router-dom";
 import {useAuth} from "../../contexts/auth";
 import {useDispatch} from "react-redux";
-import {adminClick} from '../../redux/project/actions'
+import {ADMINCLICK} from "../../redux/layout-slice";
 
 const MiniTabNavigation = () => {
     const {user}=useAuth()
@@ -46,7 +46,7 @@ const MiniTabNavigation = () => {
     const onNavigationChanged = useCallback((event) => {
       if(event.itemData.text==="Admin Panel")
       {
-          dispatch(adminClick(true))
+          dispatch(ADMINCLICK({permit:true}))
       }
 
         history.push(event.itemData.path);

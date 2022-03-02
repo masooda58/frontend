@@ -11,7 +11,7 @@ import {useSelector} from "react-redux";
 
 export default function Content(props) {
     const {user}=useAuth()
-    const adminClick=useSelector(state => state.adminClick)
+    const adminClick=useSelector(state => state.layout.adminClick)
 
   return (
 

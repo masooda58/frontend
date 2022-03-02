@@ -12,10 +12,11 @@ import { useMenuPatch } from '../../utils/patches';
 import TabNavigation from "../../components/tab-navigation/tab-navigation";
 import BrandName from "../../components/barnd-name/brand-name";
 import TabNavigationLayout from "../tab-navigation-layout/tab-navigation-layout";
-import {sideNavSearch} from "../../redux/project/actions";
+
 import {useDispatch, useSelector} from "react-redux";
 import SearchBox from "../../components/search-box/search-box";
 import UserCart from "../../components/user-cart/user-cart";
+import {TOGGLESIDENAVSEARCH} from "../../redux/layout-slice";
 
 export default function MainLayout({ title, children }) {
     const scrollViewRef = useRef();
@@ -23,7 +24,7 @@ export default function MainLayout({ title, children }) {
     const history = useHistory();
     const { isXSmall, isLarge,isMedium } = useScreenSize();
     const [patchCssClass, onMenuReady] = useMenuPatch();
-    const showMobilSearch=useSelector(state => state.showMobilSearch)
+    const showMobilSearch=useSelector(state => state.layout.showSearchOnMobile)
     const medlarg=useMemo(()=>{
         return isMedium||isLarge
     },[isLarge,isMedium]); // state screen size large or medium
@@ -130,7 +131,7 @@ export default function MainLayout({ title, children }) {
                                         <BrandName  />
                                     </Item>
                                     <Item location={'before'} cssClass={'header-title'}  >
-                                        <Button icon="search" stylingMode="text" onClick={()=>{dispatch(sideNavSearch())}} />
+                                        <Button icon="search" stylingMode="text" onClick={()=>{dispatch(TOGGLESIDENAVSEARCH())}} />
                                     </Item>
 
                                 </Toolbar>

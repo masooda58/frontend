@@ -1,12 +1,13 @@
 import React from 'react';
 import {useHistory} from "react-router-dom";
 import {useDispatch} from "react-redux";
-import {adminClick} from './redux/project/actions'
+
+import {ADMINCLICK} from "./redux/layout-slice";
 function AdminContent() {
     const history = useHistory()
     const dispatch=useDispatch()
     const handelclick=()=>{
-        dispatch(adminClick(false))
+        dispatch(ADMINCLICK({permit:false}))
         history.push("/")
     }
     return (
