@@ -59,7 +59,7 @@ const MiniTabNavigation = () => {
         }
         for(let item of items)
         {
-console.log("path="+location.pathname+ "tasavi "+location.pathname.includes(item.path))
+
             if(location.pathname.includes(item.path))
             {
                 setSelectTab(item.path)

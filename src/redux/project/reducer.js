@@ -1,7 +1,7 @@
 import {SIDE_NAV_SEARCH, MAIN_MOBIL_SEARCH, ADMIN_CLICK} from './types'
 
 const initialState={
- sideNavSearchState: false,
+   sideNavSearchState: false,
  showMobilSearch:false,
  adminClick:false
 
