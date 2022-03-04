@@ -4,7 +4,7 @@ import { navigation } from '../../app-navigation';
 import { useNavigation } from '../../contexts/navigation';
 import { useScreenSize } from '../../utils/media-query';
 import './side-navigation-menu.scss';
-import{useSelector,useDispatch} from 'react-redux'
+import{useSelector} from 'react-redux'
 
 import * as events from 'devextreme/events';
 

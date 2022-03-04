@@ -16,7 +16,7 @@ import TabNavigationLayout from "../tab-navigation-layout/tab-navigation-layout"
 import {useDispatch, useSelector} from "react-redux";
 import SearchBox from "../../components/search-box/search-box";
 import UserCart from "../../components/user-cart/user-cart";
-import {TOGGLESIDENAVSEARCH} from "../../redux/layout-slice";
+import {TOGGLESIDENAVSEARCH} from "../../redux/slice/layout-slice";
 
 export default function MainLayout({ title, children }) {
     const scrollViewRef = useRef();

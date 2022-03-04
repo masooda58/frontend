@@ -2,7 +2,7 @@ import React from 'react';
 import {useHistory} from "react-router-dom";
 import {useDispatch} from "react-redux";
 
-import {ADMINCLICK} from "./redux/layout-slice";
+import {ADMINCLICK} from "./redux/slice/layout-slice";
 function AdminContent() {
     const history = useHistory()
     const dispatch=useDispatch()

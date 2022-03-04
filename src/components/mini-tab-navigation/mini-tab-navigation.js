@@ -4,7 +4,7 @@ import "./mini-tab-navigation.scss"
 import {useHistory, useLocation} from "react-router-dom";
 import {useAuth} from "../../contexts/auth";
 import {useDispatch} from "react-redux";
-import {ADMINCLICK} from "../../redux/layout-slice";
+import {ADMINCLICK} from "../../redux/slice/layout-slice";
 
 const MiniTabNavigation = () => {
     const {user}=useAuth()

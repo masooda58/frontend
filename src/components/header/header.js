@@ -9,7 +9,7 @@ import {useScreenSize} from "../../utils/media-query";
 import {useDispatch, useSelector} from "react-redux";
 import {Tooltip} from "devextreme-react";
 import {useAuth} from "../../contexts/auth";
-import {ADMINCLICK, TOGGLESHOWSEARCONMOBIL} from "../../redux/layout-slice";
+import {ADMINCLICK, TOGGLESHOWSEARCONMOBIL} from "../../redux/slice/layout-slice";
 
 export default function Header({ menuToggleEnabled, title, toggleMenu }) {
   const { navigationData: { currentPath } } = useNavigation();
