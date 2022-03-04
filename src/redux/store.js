@@ -1,10 +1,10 @@
-// import {createStore} from "redux";
-// import {mainReducer} from "./project/reducer";
-//
-//
-// const store =createStore (mainReducer,
-//     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
-// export default store
-import{configureStore} from "@reduxjs/toolkit";
+
+import{configureStore,getDefaultMiddleware} from "@reduxjs/toolkit";
 import reducer from "./reducer";
-export const  store= configureStore({reducer})
+import apiHandler from "./middleware/api-handler";
+import {actionConsoleLog} from "./middleware/action-consoleLog";
+
+export const  store= configureStore({
+    reducer,
+    middleware: [...getDefaultMiddleware(),actionConsoleLog,apiHandler]
+})

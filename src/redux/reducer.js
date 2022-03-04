@@ -1,5 +1,7 @@
 import{combineReducers} from "redux";
-import layoutSlice from "./layout-slice";
+import layoutSlice from "./slice/layout-slice";
+
 export default combineReducers({
-    layout:layoutSlice
+    layout:layoutSlice,
+
 })
