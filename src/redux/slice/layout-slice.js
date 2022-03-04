@@ -1,6 +1,6 @@
 import {apiCallBegan} from "../api/api-actions";
 import {createSlice} from "@reduxjs/toolkit";
-
+import moment from "moment";
 const initialLayoutStat={
     sideNavSearch: false,
     showSearchOnMobile:false,
@@ -23,21 +23,22 @@ const layoutSlice =createSlice({
         NAVREQUSTEDEND:(layout,action)=>{
             layout.navigationData.loading=false
         },
-     TOGGLESIDENAVSEARCH:(layout,action)=>{
-         layout.sideNavSearch=!layout.sideNavSearch
+        TOGGLESIDENAVSEARCH:(layout,action)=>{
+            layout.sideNavSearch=!layout.sideNavSearch
 
-     },
-     TOGGLESHOWSEARCONMOBIL:(layout,action)=>{
-         layout.showSearchOnMobile=!layout.showSearchOnMobile
-     },
-     ADMINCLICK:(layout,action)=>{
-         layout.adminClick=action.payload.permit
-     },
+        },
+        TOGGLESHOWSEARCONMOBIL:(layout,action)=>{
+            layout.showSearchOnMobile=!layout.showSearchOnMobile
+        },
+        ADMINCLICK:(layout,action)=>{
+            layout.adminClick=action.payload.permit
+        },
         NAVIGATIONDATA:(layout,action )=>{
 
             layout.navigationData.list=action.payload
+            layout.navigationData.lastFetch=Date.now()
 
-    },
+        },
 
 
 
@@ -52,9 +53,30 @@ export default layoutSlice.reducer
 
 
 //actions for Ui
-export const loadingNavData=()=>apiCallBegan({
-    url:"/navigation",
-    onSuccess:NAVIGATIONDATA.type,
-    onStart:NAVREQUSTEDSTART.type,
-    onFinish:NAVREQUSTEDEND.type
-});
+export const loadingNavData=()=>(dispatch,getState)=>{
+    const {lastFetch}=getState().layout.navigationData
+    if(lastFetch !==null) {
+        const defMoment = moment().diff(lastFetch, "minutes")
+        if (defMoment < 2) return
+    }
+    dispatch( apiCallBegan({
+        url:"/navigation",
+        onSuccess:NAVIGATIONDATA.type,
+        onStart:NAVREQUSTEDSTART.type,
+        onFinish:NAVREQUSTEDEND.type
+
+    }))
+}
+
+
+
+
+
+
+// تابع زیر در زمانی که نیاز به کش داده نداشتیم
+// export const loadingNavData=()=>apiCallBegan({
+//     url:"/navigation",
+//     onSuccess:NAVIGATIONDATA.type,
+//     onStart:NAVREQUSTEDSTART.type,
+//     onFinish:NAVREQUSTEDEND.type
+// });
