@@ -19,6 +19,7 @@ function App() {
   const { user, loading } = useAuth();
   config({ rtlEnabled: true });
   const adminClick=useSelector(state => state.layout.adminClick)
+    //salam
     // const navdata=useSelector(state => state.layout.navigationData)
     // const dispath=useDispatch()
     // useMemo(()=>{
