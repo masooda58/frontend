@@ -10,7 +10,7 @@ export default function SingleCard({ title, description, children }) {
           <div className={'title'}>{title}</div>
           <div className={'description'}>{description}</div>
         </div>
-        {children}
+          {children}
       </div>
     </ScrollView>
 )}

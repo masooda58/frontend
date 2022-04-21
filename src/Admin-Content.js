@@ -15,7 +15,7 @@ function AdminContent() {
 
         <button onClick={handelclick}> home</button>
         </div>
-    );
+    ); 
 }
 
 export default AdminContent;
