@@ -13,7 +13,8 @@ import UnauthenticatedContent from './UnauthenticatedContent';
 import config from 'devextreme/core/config'
 import AdminContent from "./Admin-Content";
 import {useDispatch, useSelector} from "react-redux";
-import {loadingNavData} from "./redux/slice/layout-slice"
+import { loadingNavData } from "./redux/slice/layout-slice"
+//test
 function App() {
 
   const { user, loading } = useAuth();
